@@ -1,6 +1,9 @@
 # Containers
 This will hold various Dockerfiles for different bioinformatics tools in the hope to utilize for quick testing and pipeline building
 
+# Setup
+Not sure if this will work for every computer, I'm using a MacBook Pro M1 with docker installed and docker buildx. If you have these things on your computer, it *should* work, but you may also need to sign into your dockerhub account through your docker desktop application.
+
 ## To build containers
 I build the containers on my MacBook Pro M1, and I use docker buildx. Building with M1 apple chip will make some containers not work correctly on other platforms. Therefore with docker buildx I can specify multiple platforms. There may be requirements in order to use docker buildx (extra installations on your local machine). Check the docker documentation for more information. The general command to build looks like:
 ```
