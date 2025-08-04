@@ -1,4 +1,4 @@
-FROM python:3.8-slim-bullseye
+FROM python:3.9-slim-bullseye
 
 LABEL container.base.image="python:3.8-slim-bullseye"
 LABEL software.name="htseq"
@@ -12,16 +12,14 @@ RUN apt-get update -y && apt-get update -y
 
 RUN apt-get install -y --no-install-recommends \
     curl \
-    unzip 
-
-# install awscli v2
-RUN curl -s "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "/tmp/awscliv2.zip" \
-    && unzip -q /tmp/awscliv2.zip -d /tmp \
-    && /tmp/aws/install -b /usr/bin \
-    && rm -rf /tmp/aws*
+    unzip \
+    gcc \
+    g++ \
+    python3-dev
 
 # install htseq
-RUN python3 -m pip install numpy pysam htseq==2.0.2
+RUN python3 -m pip install numpy \
+&& python3 -m pip install htseq==2.0.2
 
 # Set default working path
 WORKDIR /docker_main

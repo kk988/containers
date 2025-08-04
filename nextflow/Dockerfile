@@ -1,5 +1,5 @@
 # use the upstream nextflow container as a base image
-ARG NF_VERSION='23.01.0-edge'
+ARG NF_VERSION='24.03.0-edge'
 FROM nextflow/nextflow:${NF_VERSION} AS build
 
 FROM amazonlinux:2 AS final
